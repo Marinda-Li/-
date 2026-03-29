@@ -1,0 +1,12 @@
+node_modules
+dist
+*.local
+.DS_Store
+# Capacitor / 原生构建产物
+android/app/build/
+android/.gradle/
+android/local.properties
+ios/App/build/
+*.keystore
+.env
+.env.*

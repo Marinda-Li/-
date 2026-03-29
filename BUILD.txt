@@ -1,0 +1,20 @@
+社团招新智能匹配 — 打包说明（H5 / 原生 APP）
+
+【一】H5（浏览器 / PWA）
+  1. npm install
+  2. npm run build
+  3. 将 dist 目录部署到任意 HTTPS 静态空间（Nginx、OSS、Vercel 等）
+  4. 可选：已配置 manifest.webmanifest，支持「添加到主屏幕」类 PWA 体验
+
+【二】原生壳 APP（Capacitor · Android / iOS）
+  1. npm install
+  2. npm run build
+  3. npx cap add android    （首次；若已有 android 目录可跳过）
+  4. npx cap add ios        （仅 macOS，首次）
+  5. npx cap sync
+  6. npm run cap:open:android  或  npm run cap:open:ios
+  7. 用 Android Studio / Xcode 连接真机或模拟器打包 APK / IPA
+
+  依赖：本机已安装 Android Studio（含 SDK）或 Xcode。
+
+说明：路由使用 Hash（#/路径），便于静态托管，无需服务端 rewrite。

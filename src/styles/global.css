@@ -1,0 +1,324 @@
+:root {
+  --ink: #000000;
+  --paper: #ffffff;
+  --muted: #8a8a8a;
+  --line: #1a1a1a;
+  --lavender: #c5b4f3;
+  --lime: #26d978;
+  --pink: #f766c3;
+  --grey-fill: #f3f3f3;
+  --shadow-sketch: 2px 3px 0 rgba(0, 0, 0, 0.08);
+  font-family: 'Noto Sans SC', system-ui, sans-serif;
+  color: var(--ink);
+  background: var(--paper);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+  margin: 0;
+}
+
+body {
+  -webkit-font-smoothing: antialiased;
+  background: var(--paper);
+}
+
+button {
+  font: inherit;
+  cursor: pointer;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.app-shell {
+  min-height: 100%;
+  max-width: 430px;
+  margin: 0 auto;
+  background: var(--paper);
+  position: relative;
+  border-left: 1px solid #eee;
+  border-right: 1px solid #eee;
+}
+
+.sketch-border {
+  border: 2px solid var(--line);
+  border-radius: 20px;
+  box-shadow: var(--shadow-sketch);
+}
+
+.sketch-border--thin {
+  border-width: 1.5px;
+}
+
+.pill {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 18px;
+  border-radius: 999px;
+  border: 2px solid var(--line);
+  background: var(--grey-fill);
+  font-weight: 600;
+  font-size: 14px;
+  transition: background 0.2s, transform 0.15s;
+}
+
+.pill--active {
+  background: var(--lavender);
+  border-color: var(--line);
+}
+
+.btn-primary {
+  background: var(--lavender);
+  color: var(--ink);
+  border: 2px solid var(--line);
+  border-radius: 16px;
+  padding: 14px 24px;
+  font-weight: 700;
+  box-shadow: var(--shadow-sketch);
+}
+
+.btn-primary:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
+.btn-ghost {
+  background: var(--grey-fill);
+  border: 2px solid var(--line);
+  border-radius: 14px;
+  padding: 10px 16px;
+  font-weight: 600;
+}
+
+@keyframes floaty {
+  0%,
+  100% {
+    transform: translateY(0) rotate(-1deg);
+  }
+  50% {
+    transform: translateY(-6px) rotate(1deg);
+  }
+}
+
+.float-bubble {
+  animation: floaty 4s ease-in-out infinite;
+}
+
+.float-bubble:nth-child(2n) {
+  animation-delay: 0.5s;
+}
+.float-bubble:nth-child(3n) {
+  animation-delay: 1s;
+}
+
+/* 发现页 · 社团招募双栏卡片 */
+.club-card {
+  position: relative;
+}
+
+.club-card--ended {
+  opacity: 0.72;
+  filter: grayscale(0.25);
+}
+
+.club-card__link {
+  display: block;
+  color: inherit;
+}
+
+.club-card__visual {
+  position: relative;
+  border-radius: 16px;
+  overflow: hidden;
+  border: 2px solid var(--line);
+  background: var(--grey-fill);
+  aspect-ratio: 4 / 5;
+}
+
+.club-card__cover {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.club-card__st {
+  position: absolute;
+  top: 8px;
+  left: 8px;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 4px 8px;
+  border-radius: 8px;
+  font-size: 10px;
+  font-weight: 800;
+  border: 2px solid var(--line);
+  background: rgba(255, 255, 255, 0.92);
+}
+
+.club-card__st-ico {
+  flex-shrink: 0;
+  opacity: 0.95;
+}
+
+.club-card__st--ongoing {
+  background: var(--lime);
+  color: var(--ink);
+}
+
+.club-card__st--endingSoon {
+  background: var(--pink);
+  color: var(--ink);
+  text-shadow: none;
+}
+
+.club-card__st--ended {
+  background: rgba(180, 180, 180, 0.55);
+  color: #444;
+}
+
+.club-card__prog {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  display: inline-flex;
+  align-items: baseline;
+  padding: 4px 8px;
+  border-radius: 8px;
+  font-size: 11px;
+  font-weight: 800;
+  border: 2px solid var(--line);
+  background: rgba(255, 255, 255, 0.92);
+  color: #222;
+}
+
+.club-card__prog-cur {
+  color: #c5b4f3;
+  font-weight: 800;
+}
+
+.club-card__prog-sep {
+  color: #666;
+  font-weight: 700;
+  margin: 0 1px;
+}
+
+.club-card__prog-max {
+  color: #333;
+  font-weight: 800;
+}
+
+.club-card__footer {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+.club-card__members-row {
+  display: flex;
+  align-items: center;
+  padding: 6px 8px 2px;
+  background: linear-gradient(to top, rgba(255, 255, 255, 0.88), rgba(255, 255, 255, 0.2));
+}
+
+.club-card__member-ava {
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  border: 1.5px solid #fff;
+  object-fit: cover;
+  margin-left: -5px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.18);
+  flex-shrink: 0;
+  position: relative;
+}
+
+.club-card__member-ava:first-child {
+  margin-left: 0;
+}
+
+.club-card__members-more {
+  margin-left: 5px;
+  font-size: 13px;
+  font-weight: 800;
+  color: #333;
+  line-height: 1;
+  letter-spacing: 0.08em;
+}
+
+.club-card__line {
+  position: relative;
+  margin: 0;
+  padding: 4px 8px 10px;
+  font-size: 11px;
+  line-height: 1.35;
+  font-weight: 700;
+  color: #222;
+  background: linear-gradient(to top, rgba(255, 255, 255, 0.96), rgba(255, 255, 255, 0.72));
+  border-top: 1px solid rgba(0, 0, 0, 0.06);
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.club-card__wish {
+  position: absolute;
+  top: 40px;
+  right: 4px;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  border: 2px solid var(--line);
+  background: rgba(255, 255, 255, 0.9);
+  font-size: 16px;
+  line-height: 1;
+  z-index: 2;
+}
+
+.club-card__below {
+  margin-top: 8px;
+  padding: 0 2px;
+}
+
+.club-card__club {
+  font-size: 13px;
+  font-weight: 800;
+  line-height: 1.25;
+  margin-bottom: 4px;
+}
+
+.club-card__who {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.club-card__ava {
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  border: 2px solid var(--line);
+  object-fit: cover;
+}
+
+.club-card__rn {
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--muted);
+}

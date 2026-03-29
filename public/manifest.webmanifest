@@ -1,0 +1,10 @@
+{
+  "name": "社团招新智能匹配",
+  "short_name": "社团匹配",
+  "description": "帮助新生发现并加入适合的社团",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#ffffff",
+  "lang": "zh-CN"
+}
